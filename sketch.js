@@ -3,15 +3,19 @@ const Engine= Matter.Engine;
 const World=  Matter.World;
  const Bodies=  Matter.Bodies;
  const Constraint= Matter.Constraint;
+
+ var background,backgroundImg;
 function preload() {
 //preload the images here
+backgroundImg = loadImage("1.jpg");
 
 }
 
 function setup() {
-  createCanvas(3000, 800);
+  createCanvas(3000,800);
   engine = Engine.create();
   world = engine.world;
+
   superman1=new superman(200,200,30,30);
   slingshot1=new slingshot(superman1.body,{x: 200, y: 100})
   // create sprites here
@@ -46,7 +50,12 @@ function setup() {
 }
 
 function draw() {
-  background(225);
+  background(backgroundImg);
+ 
+  
+ 
+
+
   Engine.update(engine);
 
   superman1.display();
